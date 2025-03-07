@@ -1,0 +1,64 @@
+<p-toast />
+<p-dialog
+  [(visible)]="visible"
+  header="Agrega un nuevo producto"
+  [modal]="true"
+  [style]="{ width: '25rem' }"
+  [closable]="true"
+  (onHide)="close()"
+>
+  <span class="p-text-secondary block mb-3"
+    >Ingresa los datos del nuevo producto.</span
+  >
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col w-full">
+    <p-fluid class="w-full flex flex-col gap-4 my-4">
+      <div>
+        <label for="name" class="font-semibold">Nombre</label>
+        <input
+          formControlName="name"
+          type="text"
+          id="name"
+          pInputText
+          placeholder="Zapattos nike"
+        />
+      </div>
+      <div>
+        <label for="price" class="font-semibold">Precio</label>
+        <input
+          formControlName="price"
+          type="number"
+          id="price"
+          pInputText
+          placeholder="****$"
+        />
+      </div>
+      <div>
+        <label for="quantity" class="font-semibold">Cantidad</label>
+        <input
+          formControlName="quantity"
+          type="number"
+          id="quantity"
+          pInputText
+          placeholder="****"
+        />
+      </div>
+      <div>
+        <label for="email" class="font-semibold">Descripción</label>
+        <textarea
+          formControlName="description"
+          rows="5"
+          cols="30"
+          pTextarea
+        ></textarea>
+      </div>
+    </p-fluid>
+    <div class="flex justify-end gap-2">
+      <p-button
+        label="Cancelar"
+        severity="secondary"
+        (click)="visible = false"
+      />
+      <p-button label="Guardar" type="submit" />
+    </div>
+  </form>
+</p-dialog>

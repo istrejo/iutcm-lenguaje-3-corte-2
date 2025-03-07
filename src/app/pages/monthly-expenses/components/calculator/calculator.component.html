@@ -1,0 +1,63 @@
+<p-card styleClass="w-ful" [style]="{ maxWidth: '400px' }">
+  <div class="flex items-center justify-between">
+    <h2 class="text-2xl font-bold">
+      <i class="pi pi-calculator text-2xl"></i>
+      Cálcula los gastos mensuales
+    </h2>
+  </div>
+  <h3 class="text-surface-500">Ingresa tus gastos</h3>
+  <form [formGroup]="form" (ngSubmit)="calculate()">
+    <div class="w-full flex flex-col gap-4 my-4">
+      <div class="flex flex-col">
+        <label for="salaries" class="font-semibold">Salarios</label>
+        <input
+          formControlName="salaries"
+          type="number"
+          id="salaries"
+          pInputText
+          placeholder="****"
+        />
+      </div>
+
+      <div class="flex flex-col">
+        <label for="services" class="font-semibold">Servicios</label>
+        <input
+          formControlName="services"
+          type="number"
+          id="services"
+          pInputText
+          placeholder="****"
+        />
+      </div>
+      <div class="flex flex-col">
+        <label for="rental" class="font-semibold">Alquiler</label>
+        <input
+          formControlName="rental"
+          type="number"
+          id="rental"
+          pInputText
+          placeholder="****"
+        />
+      </div>
+      <div class="flex flex-col">
+        <label for="others" class="font-semibold">Otros</label>
+        <input
+          formControlName="others"
+          type="number"
+          id="others"
+          pInputText
+          placeholder="****"
+        />
+      </div>
+    </div>
+    <div class="flex items-center justify-between gap-4 mt-1">
+      <p-button
+        label="Calcular"
+        type="submit"
+        styleClass="w-full"
+        raised="true"
+      />
+      <span class="font-bold">total: {{ total() | currency }}</span>
+    </div>
+  </form>
+</p-card>

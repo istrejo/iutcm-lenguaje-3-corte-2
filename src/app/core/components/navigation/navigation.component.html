@@ -1,0 +1,10 @@
+<p-menubar [model]="items">
+  @for (item of items; track item.label) {
+  <ng-template #item let-item>
+    <a class="p-menubar-item-link">
+      <span [class]="item.icon"></span>
+      <span class="ml-2">{{ item.label }}</span>
+    </a>
+  </ng-template>
+  }
+</p-menubar>

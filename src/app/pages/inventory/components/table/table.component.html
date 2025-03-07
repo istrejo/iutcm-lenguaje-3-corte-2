@@ -1,0 +1,72 @@
+<p-card>
+  <p-table
+    #dt1
+    [value]="inventory()"
+    dataKey="id"
+    [rows]="10"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [loading]="loading"
+    [paginator]="true"
+    [globalFilterFields]="['name', 'quantity', 'price']"
+    [responsive]="true"
+  >
+    <ng-template #caption>
+      <div class="flex items-center justify-between flex-wrap">
+        <span class="text-2xl font-bold">Inventario</span>
+        <div class="flex justify-start flex-wrap gap-1 md:gap-2">
+          <p-iconfield iconPosition="left">
+            <p-inputicon>
+              <i class="pi pi-search"></i>
+            </p-inputicon>
+            <input
+              class="w-full"
+              [(ngModel)]="search"
+              pInputText
+              type="text"
+              (input)="dt1.filterGlobal(search, 'contains')"
+              placeholder="Busca un producto"
+            />
+          </p-iconfield>
+          <p-button
+            label="Limpiar"
+            severity="secondary"
+            [outlined]="true"
+            icon="pi pi-filter-slash"
+            (click)="clear(dt1)"
+          />
+          <p-button
+            label="Agregar producto"
+            icon="pi pi-plus"
+            (click)="showForm()"
+          />
+          <p-button
+            label="Inventario total"
+            icon="pi pi-dollar"
+            (click)="totalInventory()"
+          />
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #header>
+      <tr>
+        <th>Nombre</th>
+        <th>precio</th>
+        <th>cantidad</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-product>
+      <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>{{ product.quantity }}</td>
+      </tr>
+    </ng-template>
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="7">No se han encontrado productos.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
+
+<app-form [visible]="displayModal" (closed)="onCloseModal($event)" />

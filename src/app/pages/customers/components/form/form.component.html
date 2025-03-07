@@ -1,0 +1,65 @@
+<p-toast />
+<p-dialog
+  [(visible)]="visible"
+  header="Agrega un nuevo cliente"
+  [modal]="true"
+  [style]="{ width: '25rem' }"
+  [closable]="true"
+  (onHide)="close()"
+>
+  <span class="p-text-secondary block mb-3"
+    >Ingresa los datos del nuevo cliente.</span
+  >
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col w-full">
+    <p-fluid class="w-full flex flex-col gap-4 my-4">
+      <div>
+        <label for="name" class="font-semibold">Nombre</label>
+        <input
+          formControlName="name"
+          type="text"
+          id="name"
+          pInputText
+          placeholder="Ingresa el nombre"
+        />
+      </div>
+      <div>
+        <label for="lastname" class="font-semibold">Apellido</label>
+        <input
+          formControlName="lastname"
+          type="text"
+          id="lastname"
+          pInputText
+          placeholder="Ingresa el nombre"
+        />
+      </div>
+      <div>
+        <label for="age" class="font-semibold">Edad</label>
+        <input
+          formControlName="age"
+          type="number"
+          id="age"
+          pInputText
+          placeholder="Ingresa la edad"
+        />
+      </div>
+      <div>
+        <label for="email" class="font-semibold">Correo</label>
+        <input
+          formControlName="email"
+          type="text"
+          id="email"
+          pInputText
+          placeholder="Ingresa el correo"
+        />
+      </div>
+    </p-fluid>
+    <div class="flex justify-end gap-2">
+      <p-button
+        label="Cancelar"
+        severity="secondary"
+        (click)="visible = false"
+      />
+      <p-button label="Guardar" type="submit" />
+    </div>
+  </form>
+</p-dialog>
