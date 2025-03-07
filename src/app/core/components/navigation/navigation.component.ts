@@ -1,11 +1,10 @@
+import { MenubarModule } from 'primeng/menubar';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { MenuItem } from 'primeng/api';
-import { PrimengModule } from 'src/app/primeng/primeng.module';
 
 @Component({
   selector: 'app-navigation',
-  imports: [PrimengModule],
+  imports: [MenubarModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
 })
