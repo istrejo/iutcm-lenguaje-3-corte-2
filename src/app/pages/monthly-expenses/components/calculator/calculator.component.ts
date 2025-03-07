@@ -1,3 +1,4 @@
+import { CardModule } from 'primeng/card';
 import { CurrencyPipe } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import {
@@ -6,11 +7,18 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { PrimengModule } from 'src/app/primeng/primeng.module';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-calculator',
-  imports: [PrimengModule, ReactiveFormsModule, CurrencyPipe],
+  imports: [
+    ReactiveFormsModule,
+    CurrencyPipe,
+    CardModule,
+    ButtonModule,
+    InputTextModule,
+  ],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.scss',
 })

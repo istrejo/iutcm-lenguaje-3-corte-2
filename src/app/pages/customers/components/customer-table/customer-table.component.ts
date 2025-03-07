@@ -1,14 +1,28 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Table } from 'primeng/table';
-import { PrimengModule } from 'src/app/primeng/primeng.module';
+import { Table, TableModule } from 'primeng/table';
 import { FormComponent } from '../form/form.component';
 import { CustomerService } from 'src/app/core/services/customer.service';
+import { CardModule } from 'primeng/card';
+import { IconField } from 'primeng/iconfield';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputIconModule } from 'primeng/inputicon';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-customer-table',
-  imports: [PrimengModule, CommonModule, FormsModule, FormComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    FormComponent,
+    CardModule,
+    TableModule,
+    IconField,
+    InputTextModule,
+    InputIconModule,
+    ButtonModule,
+  ],
   templateUrl: './customer-table.component.html',
   styleUrl: './customer-table.component.scss',
 })

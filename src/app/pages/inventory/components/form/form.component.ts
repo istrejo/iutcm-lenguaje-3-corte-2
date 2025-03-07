@@ -1,3 +1,7 @@
+import { TextareaModule } from 'primeng/textarea';
+import { FluidModule } from 'primeng/fluid';
+import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import {
   FormBuilder,
@@ -7,11 +11,18 @@ import {
 } from '@angular/forms';
 import { InventoryService } from 'src/app/core/services/inventory.service';
 import { ToastService } from 'src/app/core/services/toast.service';
-import { PrimengModule } from 'src/app/primeng/primeng.module';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-form',
-  imports: [PrimengModule, ReactiveFormsModule],
+  imports: [
+    ReactiveFormsModule,
+    ToastModule,
+    DialogModule,
+    FluidModule,
+    ButtonModule,
+    TextareaModule,
+  ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })

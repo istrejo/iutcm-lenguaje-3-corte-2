@@ -1,14 +1,26 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Table } from 'primeng/table';
+import { Table, TableModule } from 'primeng/table';
 import { InventoryService } from 'src/app/core/services/inventory.service';
-import { PrimengModule } from 'src/app/primeng/primeng.module';
 import { FormComponent } from '../form/form.component';
 import { CurrencyPipe } from '@angular/common';
+import { CardModule } from 'primeng/card';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-table',
-  imports: [PrimengModule, FormsModule, FormComponent, CurrencyPipe],
+  imports: [
+    FormsModule,
+    FormComponent,
+    CurrencyPipe,
+    CardModule,
+    TableModule,
+    IconFieldModule,
+    InputIconModule,
+    ButtonModule,
+  ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
 })
